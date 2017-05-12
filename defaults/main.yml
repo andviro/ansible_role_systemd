@@ -1,0 +1,11 @@
+---
+service_backend: systemd
+service_name: CHANGEME
+service_enabled: yes
+service_description: Default service description
+service_after: 
+  - network.target
+service_wanted_by:
+  - multi-user.target
+service_units: []
+

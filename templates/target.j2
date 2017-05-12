@@ -1,0 +1,6 @@
+[Unit]
+Description={{ service_description }}
+After={{ service_after|join(' ') }}
+
+[Install]
+WantedBy={{ service_wanted_by|join(' ') }}

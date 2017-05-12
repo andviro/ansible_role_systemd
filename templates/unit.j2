@@ -1,0 +1,14 @@
+[Unit]
+Description={{ item.description|default("instance of " + item.name + " service") }}
+PartOf={{ service_name }}.target
+
+[Service]
+Type={{ item.type|default('simple')}}
+{% if item.env is defined %}
+Environment={% for k,v in item.env.items() %}{{ k }}={{ v }} {% endfor %}
+{% endif %}
+
+ExecStart={{ item.exec_start }}
+
+[Install]
+WantedBy={{ service_name }}.target

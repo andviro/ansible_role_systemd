@@ -1,0 +1,5 @@
+---
+- name: reload systemd
+  listen: reload services
+  command: systemctl daemon-reload
+  when: service_backend == 'systemd'
