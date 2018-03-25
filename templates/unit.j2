@@ -3,6 +3,8 @@ Description={{ item.description|default("instance of " + item.name + " service")
 PartOf={{ service_name }}.target
 
 [Service]
+Restart={{ item.restart_policy|default('always')}}
+RestartSec={{ item.restart_delay|default(5)}}
 Type={{ item.type|default('simple')}}
 {% if item.env is defined %}
 Environment={% for k,v in item.env.items() %}{{ k }}={{ v }} {% endfor %}

@@ -20,6 +20,8 @@ Ansible role for creation of Systemd service.
         - 8889
         - 8890
     - name: nc2
+      restart_policy: always # set by default
+      restart_delay: 1       # default is 5 seconds
       exec_start: /bin/nc -l localhost 8891
 ```
 
